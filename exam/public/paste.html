@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANSWER-1</title>
+  
+  <!-- Modern Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: monospace;
+      padding: 40px 20px;
+      margin: 0;
+      line-height: 1.5;
+    }
+    a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    header {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333333;
+      padding-bottom: 20px;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+      margin: 0;
+    }
+    .section-group {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #333333;
+      padding-bottom: 5px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-weight: bold;
+    }
+    pre {
+      background-color: #000000;
+      color: #ffffff;
+      border: 1px solid #333333;
+      padding: 15px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: monospace;
+      font-size: 13px;
+    }
+    .token-item {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dotted #222222;
+      padding-bottom: 8px;
+    }
+    .token-val {
+      font-weight: bold;
+    }
+    .copy-btn, .token-copy, .back-btn {
+      background-color: #111111;
+      color: #ffffff;
+      border: 1px solid #333333;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-family: monospace;
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .copy-btn:hover, .token-copy:hover, .back-btn:hover {
+      background-color: #222222;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 10px 20px;
+      background: #111111;
+      border: 1px solid #333333;
+      color: #ffffff;
+      font-family: monospace;
+      display: none;
+    }
+    .toast.show {
+      display: block;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Content Viewer -->
+  <main>
+    <header>
+      <h1>ANSWER-1</h1>
+      <a href="/" class="back-btn">Back to Landing Page</a>
+    </header>
+
+    <!-- General Link Section -->
+    <section class="section-group" id="section_links">
+      <h2 class="section-title">LimeWire Links & Authorization Tokens</h2>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Token Listings</span>
+          <button class="copy-btn" onclick="copyAllTokens()">Copy All List</button>
+        </div>
+        <div class="card-body">
+          <div class="token-item">
+            <span>LimeWire Link:</span>
+            <a href="https://limewire.com/d/hN6GY#tPN2Eo4pd0" target="_blank" class="token-val" style="text-decoration: none;">https://limewire.com/d/hN6GY#tPN2Eo4pd0</a>
+          </div>
+          <div class="token-item">
+            <span>Token 1:</span>
+            <span class="token-val" id="token_1" data-b64="QVEuQWI4Uk42SUlqclhIN216a3g5RUszVTZzcXlYVHp3N25sZ0c4MzlKaUZUUWY0cTlzVHc="></span>
+            <button class="token-copy" onclick="copyText('token_1')">Copy</button>
+          </div>
+          <div class="token-item">
+            <span>Token 2:</span>
+            <span class="token-val" id="token_2" data-b64="QVEuQWI4Uk42SW5Vb2ZYNXA1MW9FZTJpYkxjTElMT0dlaDB4dU44czJLYmRncDdnaE11UUE="></span>
+            <button class="token-copy" onclick="copyText('token_2')">Copy</button>
+          </div>
+          <div class="token-item">
+            <span>Token 3:</span>
+            <span class="token-val" id="token_3" data-b64="QVEuQWI4Uk42TDl1WWdpRi1Qcm9RZ0twWU5sT2VnVTZTYlBjUDM3TFlCMnlOVjg3MFdMeUE="></span>
+            <button class="token-copy" onclick="copyText('token_3')">Copy</button>
+          </div>
+          <div class="token-item">
+            <span>Token 4:</span>
+            <span class="token-val" id="token_4" data-b64="QVEuQWI4Uk42SjdkeVVjVWxPMGRrMmhWclRhRTJyWWItU1FfRVhhNEJDOHZ3OExjZDZWYkE="></span>
+            <button class="token-copy" onclick="copyText('token_4')">Copy</button>
+          </div>
+          <div class="token-item">
+            <span>Token 5:</span>
+            <span class="token-val" id="token_5" data-b64="QVEuQWI4Uk42SXhpd2M0a0lzM3JoYVVSNXk4OXd2alpoQTZER2hvQ3JoRndBR0htTFVBNUE="></span>
+            <button class="token-copy" onclick="copyText('token_5')">Copy</button>
+          </div>
+          <div class="token-item">
+            <span>Token 6:</span>
+            <span class="token-val" id="token_6" data-b64="QVEuQWI4Uk42SkRYaGlaYTU3R0ZJcTFPNEY3RjlvMTFfZW5peC1kRE1NaW55dzVFU2R2clE="></span>
+            <button class="token-copy" onclick="copyText('token_6')">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Redux toolkit -->
+    <section class="section-group" id="redux_slice">
+      <h2 class="section-title">Redux Toolkit Configuration</h2>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">slice.ts (State slice setup)</span>
+          <button class="copy-btn" onclick="copySnippet('code_redux_slice')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_redux_slice">import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface Item {
+  id: number;
+  name: string;
+  price: number;
+  quantity?: number;
+}
+
+interface State {
+  items: Item[];
+  total: number;
+}
+
+const initialState: State = {
+  items: [],
+  total: 0
+};
+
+const slice = createSlice({
+  name: "app",
+  initialState,
+  reducers: {
+    add: (state, action: PayloadAction<Item>) => {
+      state.items.push(action.payload);
+      state.total += action.payload.price;
+    },
+
+    remove: (state, action: PayloadAction<number>) => {
+      const item = state.items.find(i => i.id === action.payload);
+      if (item) state.total -= item.price;
+
+      state.items = state.items.filter(i => i.id !== action.payload);
+    },
+
+    clear: (state) => {
+      state.items = [];
+      state.total = 0;
+    }
+  }
+});
+
+export const { add, remove, clear } = slice.actions;
+export default slice.reducer;</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-group" id="redux_store">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">store.ts (Store configuration)</span>
+          <button class="copy-btn" onclick="copySnippet('code_redux_store')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_redux_store">import { configureStore } from "@reduxjs/toolkit";
+import sliceReducer from "./slice";
+
+const store = configureStore({
+  reducer: {
+    app: sliceReducer
+  }
+});
+
+export default store;</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-group" id="redux_app">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">App.tsx (React Component Integration)</span>
+          <button class="copy-btn" onclick="copySnippet('code_redux_app')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_redux_app">import { useSelector, useDispatch } from "react-redux";
+import { add, remove, clear } from "./slice";
+
+export default function App() {
+  const dispatch = useDispatch();
+
+  const items = useSelector((state: any) => state.app.items);
+  const total = useSelector((state: any) => state.app.total);
+
+  return (
+    <div>
+
+      <h2>Items</h2>
+
+      {items.map((item: any) => (
+        <div key={item.id}>
+          {item.name} - ₹{item.price}
+
+          <button onClick={() => dispatch(remove(item.id))}>
+            Remove
+          </button>
+        </div>
+      ))}
+
+      <h3>Total: ₹{total}</h3>
+
+      <button onClick={() => dispatch(clear())}>
+        Clear All
+      </button>
+
+    </div>
+  );
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zod -->
+    <section class="section-group" id="validation_zod">
+      <h2 class="section-title">Zod Schema Validation</h2>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Zod Definition schema.ts</span>
+          <button class="copy-btn" onclick="copySnippet('code_zod')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_zod">import { z } from "zod";
+
+const schema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+  password: z.string().min(6),
+  age: z.number().min(18),
+  phone: z.string().regex(/^[0-9]{10}$/),
+  address: z.object({
+    city: z.string(),
+    state: z.string(),
+  }),
+  categories: z.array(z.string()).min(1),
+  terms: z.literal(true),
+}).refine((data) => data.password === data.confirmPassword, {
+  path: ["confirmPassword"],
+  message: "Passwords must match",
+});
+
+type FormData = z.infer&lt;typeof schema&gt;;</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Yup -->
+    <section class="section-group" id="validation_yup">
+      <h2 class="section-title">Yup Schema Validation</h2>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Yup Definition schema.ts</span>
+          <button class="copy-btn" onclick="copySnippet('code_yup')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_yup">import * as yup from "yup";
+
+type FormData = {
+  field1: string;
+  field2: string;
+  field3?: string;
+  option: string;
+  terms: boolean;
+};
+
+const schema = yup.object({
+  field1: yup.string().required(),
+
+  field2: yup
+    .string()
+    .matches(/regex/)
+    .required(),
+
+  field3: yup.string().when("option", {
+    is: "value",
+    then: (s) => s.required(),
+  }),
+
+  option: yup
+    .string()
+    .oneOf(["value1", "value2"])
+    .required(),
+
+  terms: yup
+    .boolean()
+    .oneOf([true]),
+});</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- GraphQL -->
+    <section class="section-group" id="graphql_general">
+      <h2 class="section-title">GraphQL Definitions & Schema Configurations</h2>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">General GraphQL Setup</span>
+          <button class="copy-btn" onclick="copySnippet('code_graphql_general')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_graphql_general">const typeDefs = `#graphql
+  type Item {
+    id: ID
+    name: String
+  }
+
+  type Query {
+    items: [Item]
+    item(id: ID!): Item
+  }
+
+  type Mutation {
+    addItem(name: String!): Item
+  }
+`;
+
+const resolvers = {
+  Query: {
+    items: () => data,
+    item: (_, { id }) =>
+      data.find(item => item.id == id),
+  },
+
+  Mutation: {
+    addItem: (_, args) => args,
+  },
+
+  Item: {
+    nestedField: (parent) => parent.nestedField,
+  },
+};</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-group" id="graphql_crud">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">GraphQL CRUD Operations Setup</span>
+          <button class="copy-btn" onclick="copySnippet('code_graphql_crud')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_graphql_crud">const typeDefs = `#graphql
+  type Item {
+    id: ID
+    name: String
+  }
+
+  type Query {
+    items: [Item]
+    item(id: ID!): Item
+  }
+
+  type Mutation {
+    addItem(name: String!): Item
+    updateItem(id: ID!, name: String!): Item
+    deleteItem(id: ID!): String
+  }
+`;
+
+const resolvers = {
+  Query: {
+    items: () => data,
+
+    item: (_, { id }) =>
+      data.find((item) => item.id == id),
+  },
+
+  Mutation: {
+    addItem: (_, args) => args,
+
+    updateItem: (_, { id, name }) => {
+      return { id, name };
+    },
+
+    deleteItem: (_, { id }) => {
+      return `Item with id ${id} deleted`;
+    },
+  },
+};</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-group" id="graphql_nested">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Nested Schemas + Mutation Template (GraphQL Safe 8/10)</span>
+          <button class="copy-btn" onclick="copySnippet('code_graphql_nested')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_graphql_nested">const typeDefs = `#graphql
+  type Child {
+    id: ID
+    name: String
+  }
+
+  type Parent {
+    id: ID
+    name: String
+    children: [Child]
+  }
+
+  type Query {
+    parents: [Parent]
+    parent(id: ID!): Parent
+  }
+
+  type Mutation {
+    addParent(name: String!): Parent
+    addChild(parentId: ID!, name: String!): Child
+  }
+`;
+
+const resolvers = {
+  Query: {
+    parents: () => parentsData,
+
+    parent: (_, { id }) =>
+      parentsData.find(p => p.id == id),
+  },
+
+  Mutation: {
+    addParent: (_, { name }) => {
+      return { id: Date.now(), name, children: [] };
+    },
+
+    addChild: (_, { parentId, name }) => {
+      const parent = parentsData.find(p => p.id == parentId);
+
+      const newChild = { id: Date.now(), name };
+
+      if (parent) {
+        parent.children.push(newChild);
+      }
+
+      return newChild;
+    },
+  },
+
+  Parent: {
+    children: (parent) => parent.children,
+  },
+};</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section class="section-group" id="form_controlled">
+      <h2 class="section-title">Form Handling in React</h2>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Controlled Form (useState setup)</span>
+          <button class="copy-btn" onclick="copySnippet('code_form_controlled')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_form_controlled">import { useState } from "react";
+
+export default function Form() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e: any) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(form);
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;input name="name" onChange={handleChange} /&gt;
+      &lt;input name="email" onChange={handleChange} /&gt;
+      &lt;input name="password" onChange={handleChange} /&gt;
+
+      &lt;button disabled={!form.name || !form.email || form.password.length &lt; 6}&gt;
+        Submit
+      &lt;/button&gt;
+
+      &lt;p&gt;{JSON.stringify(form)}&lt;/p&gt;
+    &lt;/form&gt;
+  );
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-group" id="form_uncontrolled">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Uncontrolled Form (useRef setup)</span>
+          <button class="copy-btn" onclick="copySnippet('code_form_uncontrolled')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_form_uncontrolled">import { useRef } from "react";
+
+export default function Form() {
+  const nameRef = useRef&lt;HTMLInputElement&gt;(null);
+  const feedbackRef = useRef&lt;HTMLInputElement&gt;(null);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    console.log({
+      name: nameRef.current?.value,
+      feedback: feedbackRef.current?.value,
+    });
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;input ref={nameRef} placeholder="Name" /&gt;
+      &lt;input ref={feedbackRef} placeholder="Feedback" /&gt;
+
+      &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-group" id="form_rhf_basic">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">React Hook Form Basic + TS Types</span>
+          <button class="copy-btn" onclick="copySnippet('code_form_rhf_basic')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_form_rhf_basic">import { useForm } from "react-hook-form";
+
+type FormData = {
+  name: string;
+  email: string;
+  password: string;
+  age: number;
+};
+
+export default function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm&lt;FormData&gt;();
+
+  const onSubmit = (data: FormData) => {
+    console.log(data);
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit(onSubmit)}&gt;
+      &lt;input {...register("name", { required: true, minLength: 3 })} /&gt;
+      &lt;input {...register("email", { required: true })} /&gt;
+      &lt;input {...register("password", { required: true, minLength: 6 })} /&gt;
+      &lt;input {...register("age", { required: true, min: 18, max: 60 })} /&gt;
+
+      &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-group" id="form_rhf_advanced">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">React Hook Form - Advanced Validations</span>
+          <button class="copy-btn" onclick="copySnippet('code_form_rhf_advanced')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_form_rhf_advanced">&lt;input
+  {...register("email", {
+    required: true,
+    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  })}
+/&gt;
+
+&lt;input
+  {...register("password", {
+    required: true,
+    validate: (value) =>
+      /\d/.test(value) || "Must contain number",
+  })}
+/&gt;</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-group" id="form_rhf_login">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">React Hook Form - Login + Backend Error Handling</span>
+          <button class="copy-btn" onclick="copySnippet('code_form_rhf_login')">Copy Code</button>
+        </div>
+        <div class="card-body">
+<pre id="code_form_rhf_login">import { useForm } from "react-hook-form";
+
+type FormData = {
+  email: string;
+  password: string;
+};
+
+export default function Login() {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm&lt;FormData&gt;();
+
+  const onSubmit = async (data: FormData) => {
+    await new Promise((r) => setTimeout(r, 1000));
+
+    if (data.email !== "admin@gmail.com") {
+      setError("email", { message: "Invalid email or password" });
+    } else {
+      console.log("Login Success");
+    }
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit(onSubmit)}&gt;
+      &lt;input {...register("email")} /&gt;
+      {errors.email && &lt;p&gt;{errors.email.message}&lt;/p&gt;}
+
+      &lt;input type="password" {...register("password")} /&gt;
+
+      &lt;button type="submit"&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast_notification">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+      <polyline points="22 4 12 14.01 9 11.01"/>
+    </svg>
+    <span id="toast_msg">Copied!</span>
+  </div>
+
+  <script>
+    // Decode base64 tokens on load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-b64]').forEach(el => {
+        el.textContent = atob(el.getAttribute('data-b64'));
+      });
+    });
+
+    // Copy Individual Snippet Function
+    function copySnippet(elementId) {
+      const codeElement = document.getElementById(elementId);
+      const text = codeElement.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Code Copied!");
+      });
+    }
+
+    // Copy single token
+    function copyText(elementId) {
+      const element = document.getElementById(elementId);
+      const text = element.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Token Copied!");
+      });
+    }
+
+    // Copy all token values
+    function copyAllTokens() {
+      const textList = [
+        "https://limewire.com/d/hN6GY#tPN2Eo4pd0",
+        document.getElementById('token_1').textContent,
+        document.getElementById('token_2').textContent,
+        document.getElementById('token_3').textContent,
+        document.getElementById('token_4').textContent,
+        document.getElementById('token_5').textContent,
+        document.getElementById('token_6').textContent
+      ].join('\n');
+
+      navigator.clipboard.writeText(textList).then(() => {
+        showToast("All Tokens Copied!");
+      });
+    }
+
+    // Toast Alert notification
+    const toast = document.getElementById('toast_notification');
+    const toastMsg = document.getElementById('toast_msg');
+
+    function showToast(message) {
+      toastMsg.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
