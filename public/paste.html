@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ANSWER-1</title>
-  
+
   <!-- Modern Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     body {
@@ -19,10 +22,12 @@
       margin: 0;
       line-height: 1.5;
     }
+
     a {
       color: #ffffff;
       text-decoration: underline;
     }
+
     header {
       margin-bottom: 40px;
       display: flex;
@@ -31,31 +36,40 @@
       border-bottom: 1px solid #333333;
       padding-bottom: 20px;
     }
-    h1, h2, h3 {
+
+    h1,
+    h2,
+    h3 {
       color: #ffffff;
       margin: 0;
     }
+
     .section-group {
       margin-bottom: 40px;
     }
+
     .section-title {
       font-size: 18px;
       margin-bottom: 15px;
       border-bottom: 1px solid #333333;
       padding-bottom: 5px;
     }
+
     .card {
       margin-bottom: 20px;
     }
+
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
     }
+
     .card-title {
       font-weight: bold;
     }
+
     pre {
       background-color: #000000;
       color: #ffffff;
@@ -66,6 +80,7 @@
       font-family: monospace;
       font-size: 13px;
     }
+
     .token-item {
       margin-bottom: 10px;
       display: flex;
@@ -74,10 +89,14 @@
       border-bottom: 1px dotted #222222;
       padding-bottom: 8px;
     }
+
     .token-val {
       font-weight: bold;
     }
-    .copy-btn, .token-copy, .back-btn {
+
+    .copy-btn,
+    .token-copy,
+    .back-btn {
       background-color: #111111;
       color: #ffffff;
       border: 1px solid #333333;
@@ -87,9 +106,13 @@
       font-size: 12px;
       text-decoration: none;
     }
-    .copy-btn:hover, .token-copy:hover, .back-btn:hover {
+
+    .copy-btn:hover,
+    .token-copy:hover,
+    .back-btn:hover {
       background-color: #222222;
     }
+
     .toast {
       position: fixed;
       bottom: 24px;
@@ -101,15 +124,18 @@
       font-family: monospace;
       display: none;
     }
+
     .toast.show {
       display: block;
     }
+
     main {
       max-width: 900px;
       margin: 0 auto;
     }
   </style>
 </head>
+
 <body>
   <!-- Main Content Viewer -->
   <main>
@@ -129,36 +155,43 @@
         <div class="card-body">
           <div class="token-item">
             <span>LimeWire Link:</span>
-            <a href="https://limewire.com/d/hN6GY#tPN2Eo4pd0" target="_blank" class="token-val" style="text-decoration: none;">https://limewire.com/d/hN6GY#tPN2Eo4pd0</a>
+            <a href="https://limewire.com/d/hN6GY#tPN2Eo4pd0" target="_blank" class="token-val"
+              style="text-decoration: none;">https://limewire.com/d/hN6GY#tPN2Eo4pd0</a>
           </div>
           <div class="token-item">
             <span>Token 1:</span>
-            <span class="token-val" id="token_1" data-b64="QVEuQWI4Uk42SUlqclhIN216a3g5RUszVTZzcXlYVHp3N25sZ0c4MzlKaUZUUWY0cTlzVHc="></span>
+            <span class="token-val" id="token_1"
+              data-b64="QVEuQWI4Uk42SUlqclhIN216a3g5RUszVTZzcXlYVHp3N25sZ0c4MzlKaUZUUWY0cTlzVHc="></span>
             <button class="token-copy" onclick="copyText('token_1')">Copy</button>
           </div>
           <div class="token-item">
             <span>Token 2:</span>
-            <span class="token-val" id="token_2" data-b64="QVEuQWI4Uk42SW5Vb2ZYNXA1MW9FZTJpYkxjTElMT0dlaDB4dU44czJLYmRncDdnaE11UUE="></span>
+            <span class="token-val" id="token_2"
+              data-b64="QVEuQWI4Uk42SW5Vb2ZYNXA1MW9FZTJpYkxjTElMT0dlaDB4dU44czJLYmRncDdnaE11UUE="></span>
             <button class="token-copy" onclick="copyText('token_2')">Copy</button>
           </div>
           <div class="token-item">
             <span>Token 3:</span>
-            <span class="token-val" id="token_3" data-b64="QVEuQWI4Uk42TDl1WWdpRi1Qcm9RZ0twWU5sT2VnVTZTYlBjUDM3TFlCMnlOVjg3MFdMeUE="></span>
+            <span class="token-val" id="token_3"
+              data-b64="QVEuQWI4Uk42TDl1WWdpRi1Qcm9RZ0twWU5sT2VnVTZTYlBjUDM3TFlCMnlOVjg3MFdMeUE="></span>
             <button class="token-copy" onclick="copyText('token_3')">Copy</button>
           </div>
           <div class="token-item">
             <span>Token 4:</span>
-            <span class="token-val" id="token_4" data-b64="QVEuQWI4Uk42SjdkeVVjVWxPMGRrMmhWclRhRTJyWWItU1FfRVhhNEJDOHZ3OExjZDZWYkE="></span>
+            <span class="token-val" id="token_4"
+              data-b64="QVEuQWI4Uk42SjdkeVVjVWxPMGRrMmhWclRhRTJyWWItU1FfRVhhNEJDOHZ3OExjZDZWYkE="></span>
             <button class="token-copy" onclick="copyText('token_4')">Copy</button>
           </div>
           <div class="token-item">
             <span>Token 5:</span>
-            <span class="token-val" id="token_5" data-b64="QVEuQWI4Uk42SXhpd2M0a0lzM3JoYVVSNXk4OXd2alpoQTZER2hvQ3JoRndBR0htTFVBNUE="></span>
+            <span class="token-val" id="token_5"
+              data-b64="QVEuQWI4Uk42SXhpd2M0a0lzM3JoYVVSNXk4OXd2alpoQTZER2hvQ3JoRndBR0htTFVBNUE="></span>
             <button class="token-copy" onclick="copyText('token_5')">Copy</button>
           </div>
           <div class="token-item">
             <span>Token 6:</span>
-            <span class="token-val" id="token_6" data-b64="QVEuQWI4Uk42SkRYaGlaYTU3R0ZJcTFPNEY3RjlvMTFfZW5peC1kRE1NaW55dzVFU2R2clE="></span>
+            <span class="token-val" id="token_6"
+              data-b64="QVEuQWI4Uk42SkRYaGlaYTU3R0ZJcTFPNEY3RjlvMTFfZW5peC1kRE1NaW55dzVFU2R2clE="></span>
             <button class="token-copy" onclick="copyText('token_6')">Copy</button>
           </div>
         </div>
@@ -174,7 +207,7 @@
           <button class="copy-btn" onclick="copySnippet('code_redux_slice')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_redux_slice">import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+          <pre id="code_redux_slice">import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Item {
   id: number;
@@ -229,7 +262,7 @@ export default slice.reducer;</pre>
           <button class="copy-btn" onclick="copySnippet('code_redux_store')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_redux_store">import { configureStore } from "@reduxjs/toolkit";
+          <pre id="code_redux_store">import { configureStore } from "@reduxjs/toolkit";
 import sliceReducer from "./slice";
 
 const store = configureStore({
@@ -250,7 +283,7 @@ export default store;</pre>
           <button class="copy-btn" onclick="copySnippet('code_redux_app')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_redux_app">import { useSelector, useDispatch } from "react-redux";
+          <pre id="code_redux_app">import { useSelector, useDispatch } from "react-redux";
 import { add, remove, clear } from "./slice";
 
 export default function App() {
@@ -296,7 +329,7 @@ export default function App() {
           <button class="copy-btn" onclick="copySnippet('code_zod')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_zod">import { z } from "zod";
+          <pre id="code_zod">import { z } from "zod";
 
 const schema = z.object({
   name: z.string().min(2),
@@ -329,7 +362,7 @@ type FormData = z.infer&lt;typeof schema&gt;;</pre>
           <button class="copy-btn" onclick="copySnippet('code_yup')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_yup">import * as yup from "yup";
+          <pre id="code_yup">import * as yup from "yup";
 
 type FormData = {
   field1: string;
@@ -374,7 +407,7 @@ const schema = yup.object({
           <button class="copy-btn" onclick="copySnippet('code_graphql_general')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_graphql_general">const typeDefs = `#graphql
+          <pre id="code_graphql_general">const typeDefs = `#graphql
   type Item {
     id: ID
     name: String
@@ -416,7 +449,7 @@ const resolvers = {
           <button class="copy-btn" onclick="copySnippet('code_graphql_crud')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_graphql_crud">const typeDefs = `#graphql
+          <pre id="code_graphql_crud">const typeDefs = `#graphql
   type Item {
     id: ID
     name: String
@@ -465,7 +498,7 @@ const resolvers = {
           <button class="copy-btn" onclick="copySnippet('code_graphql_nested')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_graphql_nested">const typeDefs = `#graphql
+          <pre id="code_graphql_nested">const typeDefs = `#graphql
   type Child {
     id: ID
     name: String
@@ -531,7 +564,7 @@ const resolvers = {
           <button class="copy-btn" onclick="copySnippet('code_form_controlled')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_form_controlled">import { useState } from "react";
+          <pre id="code_form_controlled">import { useState } from "react";
 
 export default function Form() {
   const [form, setForm] = useState({
@@ -576,7 +609,7 @@ export default function Form() {
           <button class="copy-btn" onclick="copySnippet('code_form_uncontrolled')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_form_uncontrolled">import { useRef } from "react";
+          <pre id="code_form_uncontrolled">import { useRef } from "react";
 
 export default function Form() {
   const nameRef = useRef&lt;HTMLInputElement&gt;(null);
@@ -611,7 +644,7 @@ export default function Form() {
           <button class="copy-btn" onclick="copySnippet('code_form_rhf_basic')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_form_rhf_basic">import { useForm } from "react-hook-form";
+          <pre id="code_form_rhf_basic">import { useForm } from "react-hook-form";
 
 type FormData = {
   name: string;
@@ -653,7 +686,7 @@ export default function Form() {
           <button class="copy-btn" onclick="copySnippet('code_form_rhf_advanced')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_form_rhf_advanced">&lt;input
+          <pre id="code_form_rhf_advanced">&lt;input
   {...register("email", {
     required: true,
     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -678,7 +711,7 @@ export default function Form() {
           <button class="copy-btn" onclick="copySnippet('code_form_rhf_login')">Copy Code</button>
         </div>
         <div class="card-body">
-<pre id="code_form_rhf_login">import { useForm } from "react-hook-form";
+          <pre id="code_form_rhf_login">import { useForm } from "react-hook-form";
 
 type FormData = {
   email: string;
@@ -717,13 +750,69 @@ export default function Login() {
         </div>
       </div>
     </section>
+
+    <!-- Apollo Server Setup -->
+    <section class="section-group" id="apollo_server_setup">
+      <h2 class="section-title">Apollo Server Setup</h2>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Apollo Server & GraphQL Resolvers</span>
+          <button class="copy-btn" onclick="copySnippet('code_apollo_server')">Copy Code</button>
+        </div>
+        <div class="card-body">
+          <pre id="code_apollo_server">import { ApolloServer, gql } from "apollo-server";
+
+const typeDefs = gql`
+  type Course {
+    courseName: String
+    duration: String
+  }
+
+  type User {
+    name: String
+    age: Int
+    course: Course
+  }
+
+  type Query {
+    user: User
+  }
+`;
+
+const resolvers = {
+  Query: {
+    user: () => {
+      return {
+        name: "Navya",
+        age: 20,
+        course: {
+          courseName: "Computer Science",
+          duration: "4 Years",
+        },
+      };
+    },
+  },
+};
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+server.listen({ port: 4000 }).then(({ url }) => {
+  console.log(`Server running at \${url}`);
+});</pre>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Notification Toast -->
   <div class="toast" id="toast_notification">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-      <polyline points="22 4 12 14.01 9 11.01"/>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
     </svg>
     <span id="toast_msg">Copied!</span>
   </div>
@@ -784,4 +873,5 @@ export default function Login() {
     }
   </script>
 </body>
+
 </html>
